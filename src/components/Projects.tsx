@@ -21,9 +21,9 @@ const allProjectsData = [
   { id: 'collaboraai', image: project2Img, category: 'both', translationKey: 'collaboraai', demoUrl: 'https://www.figma.com/design/1RuJ2kTMqG0KX9rKhhRtQ1/collaboraAI?t=cZsxlvSFSlBghFhw-0', githubUrl: 'https://github.com/zidanesabir/collabora-ai' },
   { id: 'note', image: project3Img, category: 'dev', translationKey: 'note', demoUrl: '#', githubUrl: 'https://github.com/zidanesabir/note_app' },
   { id: 'note2', image: project4Img, category: 'dev', translationKey: 'note2', demoUrl: '#', githubUrl: 'https://github.com/zidanesabir/note_app_v2' },
-  { id: 'portfolio', image: project5Img, category: 'dev', translationKey: 'portfolio', demoUrl: '#', githubUrl: '#' },
-  { id: 'portfolio2', image: project6Img, category: 'both', translationKey: 'portfolio2', demoUrl: '#', githubUrl: '#' },
-  { id: 'classifier', image: project7Img, category: 'ui', translationKey: 'classifier', demoUrl: '#', githubUrl: '#' },
+  { id: 'portfolio', image: project5Img, category: 'dev', translationKey: 'portfolio', demoUrl: 'https://zidanesabir.netlify.app/', githubUrl: 'https://github.com/zidanesabir/modern-folio-maker' },
+  { id: 'portfolio2', image: project6Img, category: 'both', translationKey: 'portfolio2', demoUrl: '#', githubUrl: 'https://github.com/zidanesabir/monportfolio' },
+  { id: 'classifier', image: project7Img, category: '', translationKey: 'classifier', demoUrl: '#', githubUrl: 'https://github.com/zidanesabir/image-classifier' },
  
 ];
 
@@ -34,7 +34,7 @@ const translations = {
     links: { demo: "Demo", github: "GitHub" },
     ribbons: { dev: "DEV", ui: "UI/UX" },
     projects: {
-      healthtrack: { title: "healthtrack", description: "A modern and intuitive website for medical monitoring of patients and supervision of doctors .", tags: ["UI/UX Design", "Figma","React JS", "Node JS"] },
+      healthtrack: { title: "healthtrack(in progress))", description: "A modern and intuitive website for medical monitoring of patients and supervision of doctors .", tags: ["UI/UX Design", "Figma","React JS", "Node JS"] },
       clientin: { title: "Clientin", description: "A modern and intuitive website design.", tags: ["UI/UX Design", "Figma"] },
       collaboraai: { title: "CollaboraAI (in progress)", description: "AI-powered collaboration platform.", tags: ["UI/UX Design", "React JS", "Node JS", "Mongo DB"] },
       note: { title: "Note", description: "A personal note-taking with collaboration features.", tags: ["React JS", "Node JS", "SQLite"] },
@@ -63,7 +63,7 @@ const translations = {
     links: { demo: "Démo", github: "GitHub" },
     ribbons: { dev: "DEV", ui: "UI/UX" },
     projects: {
-      healthtrack: { title: "healthtrack", description: "Un site web moderne et intuitif pour  suivi médical des patients et la supervision des docteurs .", tags: ["UI/UX Design", "Figma","React JS", "Node JS"] },
+      healthtrack: { title: "healthtrack(en cours))", description: "Un site web moderne et intuitif pour  suivi médical des patients et la supervision des docteurs .", tags: ["UI/UX Design", "Figma","React JS", "Node JS"] },
 
       clientin: { title: "Clientin", description: "Un design de site web moderne et intuitif.", tags: ["UI/UX Design", "Figma"] },
       collaboraai: { title: "CollaboraAI (en cours)", description: "Plateforme de collaboration alimentée par l'IA.", tags: ["UI/UX Design", "React JS", "Node JS", "Mongo DB"] },
