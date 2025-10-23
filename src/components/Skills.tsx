@@ -4,7 +4,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 // --- Skill Image Imports ---
 // TODO: Make sure these paths match your files in the assets folder
 import htmlImg from '@/assets/html.png';
-import cssImg from '@/assets/css.png';
+import cssImg from '@/assets/CSS.png';
 import jsImg from '@/assets/js.png';
 import javaImg from '@/assets/java.png';
 import pythonImg from '@/assets/python.png';
