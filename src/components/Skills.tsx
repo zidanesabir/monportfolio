@@ -18,7 +18,7 @@ import nodeImg from '@/assets/node.png';
 import springImg from '@/assets/spring-boot.png';
 import tailwindImg from '@/assets/tailwind.png';
 import plsqlImg from '@/assets/pl-sql.png';
-import flutterImg from '@/assets/FLUTTER.png';
+import flutterImg from '@/assets/flutter.png';
 import kubeImg from '@/assets/kubernetes.png';
 import dockerImg from '@/assets/docker.png';
 import terraformImg from '@/assets/terraform.png';
