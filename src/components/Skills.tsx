@@ -20,7 +20,7 @@ import tailwindImg from '@/assets/tailwind.png';
 import plsqlImg from '@/assets/pl-sql.png';
 import flutterImg from '@/assets/flutter.png';
 import kubeImg from '@/assets/kubernetes.png';
-import dockerImg from '@/assets/docker.png';
+import dockerImg from '@/assets/DOCKER.png';
 import terraformImg from '@/assets/terraform.png';
 import gitImg from '@/assets/git.png';
 
