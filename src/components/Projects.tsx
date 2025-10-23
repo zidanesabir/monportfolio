@@ -23,7 +23,7 @@ const allProjectsData = [
   { id: 'note2', image: project4Img, category: 'dev', translationKey: 'note2', demoUrl: '#', githubUrl: 'https://github.com/zidanesabir/note_app_v2' },
   { id: 'portfolio', image: project5Img, category: 'dev', translationKey: 'portfolio', demoUrl: 'https://zidanesabir.netlify.app/', githubUrl: 'https://github.com/zidanesabir/modern-folio-maker' },
   { id: 'portfolio2', image: project6Img, category: 'both', translationKey: 'portfolio2', demoUrl: '#', githubUrl: 'https://github.com/zidanesabir/monportfolio' },
-  { id: 'classifier', image: project7Img, category: '', translationKey: 'classifier', demoUrl: '#', githubUrl: 'https://github.com/zidanesabir/image-classifier' },
+  { id: 'classifier', image: project7Img, category: 'dev', translationKey: 'classifier', demoUrl: '#', githubUrl: 'https://github.com/zidanesabir/image-classifier' },
  
 ];
 
