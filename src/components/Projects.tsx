@@ -17,7 +17,7 @@ import talentiaImg from '@/assets/talentia.png';
 // --- Data Section - Using image names as project names ---
 
 const allProjectsData = [
-  { id: 'talentia', image: talentiaImg, category: 'both', translationKey: 'talentia', demoUrl: '#', githubUrl: '#' },
+  { id: 'talentia', image: talentiaImg, category: 'both', translationKey: 'talentia', demoUrl: 'https://www.figma.com/design/i4CpV0bi1Z08BDhzdeMdzr/talentia?t=P6WEWKbTeEfxbBN7-0', githubUrl: 'https://github.com/zidanesabir/talentia' },
   { id: 'healthtrack', image: projectImg, category: 'both', translationKey: 'healthtrack', demoUrl: 'https://www.figma.com/design/XLp5jxS177MJ1XK8u6Hq88/HealthTrack?node-id=1-4&p=f&t=mI4BvByVkiFYxQBJ-0', githubUrl: '#' },
   { id: 'clientin', image: project1Img, category: 'ui', translationKey: 'clientin', demoUrl: 'https://www.figma.com/design/JAPl4YbttGKHwIwFeWdRED/LangoPlay?node-id=0-1&p=f&t=zTRUEISJLp3dLt6N-0', githubUrl: '#' },
   { id: 'collaboraai', image: project2Img, category: 'both', translationKey: 'collaboraai', demoUrl: 'https://www.figma.com/design/1RuJ2kTMqG0KX9rKhhRtQ1/collaboraAI?t=cZsxlvSFSlBghFhw-0', githubUrl: 'https://github.com/zidanesabir/collabora-ai' },
