@@ -2,7 +2,7 @@ import React from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Star, ArrowLeft, ArrowRight, Github, ExternalLink } from 'lucide-react';
 
-// --- All 7 project images are now used ---
+// --- All 8 project images are now used ---
 import projectImg from '@/assets/health.png';
 import project1Img from '@/assets/clientin.png'; 
 import project2Img from '@/assets/collaboraai.png';
@@ -11,11 +11,13 @@ import project4Img from '@/assets/note.png';
 import project7Img from '@/assets/classifier-image.png';
 import project5Img from '@/assets/portfolio.png';
 import project6Img from '@/assets/portfolio2.png';
+import talentiaImg from '@/assets/talentia.png';
 
 
 // --- Data Section - Using image names as project names ---
 
 const allProjectsData = [
+  { id: 'talentia', image: talentiaImg, category: 'both', translationKey: 'talentia', demoUrl: '#', githubUrl: '#' },
   { id: 'healthtrack', image: projectImg, category: 'both', translationKey: 'healthtrack', demoUrl: 'https://www.figma.com/design/XLp5jxS177MJ1XK8u6Hq88/HealthTrack?node-id=1-4&p=f&t=mI4BvByVkiFYxQBJ-0', githubUrl: '#' },
   { id: 'clientin', image: project1Img, category: 'ui', translationKey: 'clientin', demoUrl: 'https://www.figma.com/design/JAPl4YbttGKHwIwFeWdRED/LangoPlay?node-id=0-1&p=f&t=zTRUEISJLp3dLt6N-0', githubUrl: '#' },
   { id: 'collaboraai', image: project2Img, category: 'both', translationKey: 'collaboraai', demoUrl: 'https://www.figma.com/design/1RuJ2kTMqG0KX9rKhhRtQ1/collaboraAI?t=cZsxlvSFSlBghFhw-0', githubUrl: 'https://github.com/zidanesabir/collabora-ai' },
@@ -34,6 +36,7 @@ const translations = {
     links: { demo: "Demo", github: "GitHub" },
     ribbons: { dev: "DEV", ui: "UI/UX" },
     projects: {
+      talentia: { title: "Talentia AI (in progress)", description: "Big Data and AI platform for intelligent job matching with CV analysis and compatibility scoring.", tags: ["React JS", "FastAPI", "Hadoop", "NLP", "BERT", "Docker"] },
       healthtrack: { title: "healthtrack(in progress))", description: "A modern and intuitive website for medical monitoring of patients and supervision of doctors .", tags: ["UI/UX Design", "Figma","React JS", "Node JS"] },
       clientin: { title: "Clientin", description: "A modern and intuitive website design.", tags: ["UI/UX Design", "Figma"] },
       collaboraai: { title: "CollaboraAI (in progress)", description: "AI-powered collaboration platform.", tags: ["UI/UX Design", "React JS", "Node JS", "Mongo DB"] },
@@ -63,6 +66,7 @@ const translations = {
     links: { demo: "Démo", github: "GitHub" },
     ribbons: { dev: "DEV", ui: "UI/UX" },
     projects: {
+      talentia: { title: "Talentia AI (en cours)", description: "Plateforme Big Data et IA pour le matching emploi intelligent avec analyse CV et scoring de compatibilité.", tags: ["React JS", "FastAPI", "Hadoop", "NLP", "BERT", "Docker"] },
       healthtrack: { title: "healthtrack(en cours))", description: "Un site web moderne et intuitif pour  suivi médical des patients et la supervision des docteurs .", tags: ["UI/UX Design", "Figma","React JS", "Node JS"] },
 
       clientin: { title: "Clientin", description: "Un design de site web moderne et intuitif.", tags: ["UI/UX Design", "Figma"] },
@@ -75,13 +79,13 @@ const translations = {
       app_v1: {
         title: "App — FastAPI + Next.js",
         description:
-          "Application complète (Version 1) avec un backend FastAPI (Python) et un frontend Next.js. Comprend l’authentification, des endpoints REST et une architecture Docker Compose intégrée pour le développement local et le déploiement en production.",
+          "Application complète (Version 1) avec un backend FastAPI (Python) et un frontend Next.js. Comprend l'authentification, des endpoints REST et une architecture Docker Compose intégrée pour le développement local et le déploiement en production.",
         tags: ["FastAPI", "Python", "Next.js", "React", "Docker", "Docker Compose"]
       },
       app_v2: {
         title: "App — Express.js + React",
         description:
-          "Application complète (Version 2) avec un backend Express.js (Node.js) et un frontend React. Offre une API REST, l’authentification JWT et une configuration Docker Compose pour orchestrer les services backend, frontend et base de données.",
+          "Application complète (Version 2) avec un backend Express.js (Node.js) et un frontend React. Offre une API REST, l'authentification JWT et une configuration Docker Compose pour orchestrer les services backend, frontend et base de données.",
         tags: ["Express.js", "Node.js", "React", "Docker", "Docker Compose"]
       }
     }
