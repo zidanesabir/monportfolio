@@ -63,7 +63,7 @@ const translations = {
       },
       dut: {
         title: "DIPLÔME UNIVERSITAIRE DE TECHNOLOGIE",
-        school: "UNIVERSITÉ IBN ZOHR, FSA AGADIR",
+        school: " Université SULTAN MOULAY SLIMANE, EST BÉNI MELLAL",
         description: "Formation technique en informatique couvrant les bases de la programmation, l'administration système et la gestion de réseau.",
         tags: ['Programmation', 'Administration Système', 'Gestion de Réseau', 'Gestion de Projet'],
       },
