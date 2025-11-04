@@ -93,109 +93,108 @@ const Hero = () => {
       </div>
 
       {/* Main Content */}
-      <div className="relative z-10 min-h-screen flex items-center pt-20 sm:pt-16">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 min-h-screen flex items-center pt-20 sm:pt-16 pb-16">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             
-            {/* Profile Image */}
-            <div className="animate-fade-in-up flex justify-center lg:justify-end mt-8 lg:mt-0 order-1 lg:order-2" style={{ animationDelay: '0.4s' }}>
-              <div className="relative">
-                <div className="absolute -inset-3 sm:-inset-4 bg-gradient-to-br from-yellow-400/30 to-amber-500/30 rounded-2xl sm:rounded-3xl transform rotate-6"></div>
-                <div className="absolute -inset-1 sm:-inset-2 border-2 border-yellow-400/50 rounded-xl sm:rounded-2xl transform -rotate-3"></div>
-                <div className="relative w-64 h-80 sm:w-80 sm:h-96 md:w-96 md:h-[450px] bg-gradient-to-br from-amber-800 to-amber-900 rounded-xl sm:rounded-2xl overflow-hidden shadow-2xl">
-                  <div className="w-full h-full bg-gradient-to-br from-amber-700 to-amber-800 flex items-center justify-center">
-                    <img
-                      src={sabirImage}
-                      alt="Zidane Sabir"
-                      className="pt-12 sm:pt-16 md:pt-20 w-full h-full object-cover object-top"
-                    />
-                  </div>
-                  <div className="absolute inset-0 bg-gradient-to-t from-amber-900/30 to-transparent"></div>
-                </div>
-                <div className="absolute top-3 right-3 sm:top-4 sm:right-4 w-12 h-12 sm:w-16 sm:h-16 border border-yellow-400/30 transform rotate-45"></div>
-                <div className="absolute -bottom-1 -left-1 sm:-bottom-2 sm:-left-2 w-6 h-6 sm:w-8 sm:h-8 bg-yellow-400 rounded-full animate-pulse"></div>
-              </div>
-            </div>
-
-            {/* Text Content */}
-            <div className="space-y-4 sm:space-y-6 order-2 lg:order-1 text-left">
-              <div className="animate-fade-in-up space-y-2 sm:space-y-4">
-                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight text-amber-100">
+            {/* Text Content - LEFT SIDE */}
+            <div className="space-y-4 sm:space-y-5 order-2 lg:order-1 text-left">
+              <div className="animate-fade-in-up space-y-2 sm:space-y-3">
+                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-amber-100">
                   {t.name}
                 </h1>
-                <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl font-semibold bg-gradient-to-r from-yellow-400 via-amber-300 to-yellow-500 bg-clip-text text-transparent">
+                <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-3xl font-semibold bg-gradient-to-r from-yellow-400 via-amber-300 to-yellow-500 bg-clip-text text-transparent">
                   {t.title}
                 </h2>
               </div>
 
               <div className="animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
-                <p className="text-amber-200 text-base sm:text-lg md:text-xl max-w-2xl leading-relaxed">
+                <p className="text-amber-200 text-sm sm:text-base md:text-lg max-w-xl leading-relaxed">
                   {t.description}
                 </p>
               </div>
 
               {/* Buttons */}
-              <div className="animate-fade-in-up flex flex-col sm:flex-row gap-3 sm:gap-4 justify-start" style={{ animationDelay: '0.6s' }}>
+              <div className="animate-fade-in-up flex flex-col sm:flex-row gap-3 justify-start" style={{ animationDelay: '0.6s' }}>
                 <Button 
-                  size="lg" 
-                  // ✨ FIX: Added 'active:scale-95' for a click/tap effect, primarily for mobile
-                  className="group bg-gradient-to-r from-yellow-400 via-amber-400 to-yellow-500 hover:from-yellow-300 hover:via-amber-300 hover:to-yellow-400 text-amber-900 font-semibold px-6 sm:px-8 py-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 active:scale-95 sm:active:scale-105 text-sm sm:text-base"
+                  size="default" 
+                  className="group bg-gradient-to-r from-yellow-400 via-amber-400 to-yellow-500 hover:from-yellow-300 hover:via-amber-300 hover:to-yellow-400 text-amber-900 font-semibold px-5 py-2 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 active:scale-95 text-sm"
                   asChild
                 >
                   <a href={sabirZidaneCv} download="cv_sabir_zidane.pdf">
-                    <Download className="w-4 h-4 sm:w-5 sm:h-5 mr-2 group-hover:animate-bounce" />
+                    <Download className="w-4 h-4 mr-2 group-hover:animate-bounce" />
                     {t.downloadCV}
                   </a>
                 </Button>
                 <Button 
                   variant="outline" 
-                  size="lg" 
+                  size="default" 
                   onClick={scrollToContact}
-                  className="group border-2 border-amber-300 text-amber-100 bg-transparent hover:bg-amber-300 hover:text-amber-900 px-6 sm:px-8 py-3 rounded-xl transition-all duration-300 hover:scale-105 text-sm sm:text-base"
+                  className="group border-2 border-amber-300 text-amber-100 bg-transparent hover:bg-amber-300 hover:text-amber-900 px-5 py-2 rounded-lg transition-all duration-300 hover:scale-105 text-sm"
                 >
-                  <MessageCircle className="w-4 h-4 sm:w-5 sm:h-5 mr-2 group-hover:scale-110 transition-transform" />
+                  <MessageCircle className="w-4 h-4 mr-2 group-hover:scale-110 transition-transform" />
                   {t.contactMe}
                 </Button>
               </div>
 
               {/* Stats & Socials Container */}
-              <div className="pt-6 sm:pt-8">
-                <div className="animate-fade-in-up grid grid-cols-2 gap-x-8 gap-y-6" style={{ animationDelay: '0.9s' }}>
+              <div className="pt-4 sm:pt-6">
+                <div className="animate-fade-in-up grid grid-cols-2 gap-x-6 gap-y-4" style={{ animationDelay: '0.9s' }}>
                   {stats.map((stat, index) => (
                     <div key={index}>
-                      <div className="text-xl sm:text-2xl md:text-3xl font-bold text-yellow-400">{stat.number}</div>
+                      <div className="text-lg sm:text-xl md:text-2xl font-bold text-yellow-400">{stat.number}</div>
                       <div className="text-amber-200 text-xs sm:text-sm leading-tight">{stat.label}</div>
                     </div>
                   ))}
                 </div>
 
-                <div className="animate-fade-in-up flex justify-start pt-6 sm:pt-8" style={{ animationDelay: '1.2s' }}>
-                  <div className="flex space-x-3 sm:space-x-4">
+                <div className="animate-fade-in-up flex justify-start pt-5" style={{ animationDelay: '1.2s' }}>
+                  <div className="flex space-x-3">
                     {socialLinks.map(({ icon: Icon, href, label }) => (
                       <a
                         key={label}
                         href={href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="p-2 sm:p-3 bg-amber-800/50 border border-amber-700 rounded-full hover:bg-yellow-400 hover:border-yellow-400 hover:scale-110 transition-all duration-300 group"
+                        className="p-2 bg-amber-800/50 border border-amber-700 rounded-full hover:bg-yellow-400 hover:border-yellow-400 hover:scale-110 transition-all duration-300 group"
                         aria-label={label}
                       >
-                        <Icon className="w-4 h-4 sm:w-5 sm:h-5 text-amber-100 group-hover:text-amber-900 transition-colors" />
+                        <Icon className="w-4 h-4 text-amber-100 group-hover:text-amber-900 transition-colors" />
                       </a>
                     ))}
                   </div>
                 </div>
               </div>
-
             </div>
+
+            {/* Profile Image - RIGHT SIDE */}
+            <div className="animate-fade-in-up flex justify-center lg:justify-end mt-8 lg:mt-0 order-1 lg:order-2" style={{ animationDelay: '0.4s' }}>
+              <div className="relative">
+                <div className="absolute -inset-3 bg-gradient-to-br from-yellow-400/30 to-amber-500/30 rounded-2xl transform rotate-6"></div>
+                <div className="absolute -inset-1 border-2 border-yellow-400/50 rounded-xl transform -rotate-3"></div>
+                <div className="relative w-64 h-80 sm:w-72 sm:h-[380px] md:w-80 md:h-[420px] bg-gradient-to-br from-amber-800 to-amber-900 rounded-xl overflow-hidden shadow-2xl">
+                  <div className="w-full h-full bg-gradient-to-br from-amber-700 to-amber-800 flex items-center justify-center">
+                    <img
+                      src={sabirImage}
+                      alt="Zidane Sabir"
+                      className="pt-12 sm:pt-14 md:pt-16 w-full h-full object-cover object-top"
+                    />
+                  </div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-amber-900/30 to-transparent"></div>
+                </div>
+                <div className="absolute top-3 right-3 w-10 h-10 sm:w-12 sm:h-12 border border-yellow-400/30 transform rotate-45"></div>
+                <div className="absolute -bottom-1 -left-1 w-5 h-5 sm:w-6 sm:h-6 bg-yellow-400 rounded-full animate-pulse"></div>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>
 
       {/* Scroll Indicator */}
-      <div className="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <div className="w-5 h-8 sm:w-6 sm:h-10 border-2 border-yellow-400 rounded-full flex justify-center">
-          <div className="w-1 h-2 sm:h-3 bg-yellow-400 rounded-full mt-1 sm:mt-2 animate-pulse"></div>
+      <div className="absolute bottom-4 sm:bottom-6 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <div className="w-5 h-8 border-2 border-yellow-400 rounded-full flex justify-center">
+          <div className="w-1 h-2 bg-yellow-400 rounded-full mt-1 animate-pulse"></div>
         </div>
       </div>
 

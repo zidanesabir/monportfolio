@@ -3,7 +3,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { Linkedin, Mail, Phone, MapPin, Github, CheckCircle, XCircle } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 
-// --- Data & Translations ---
+// --- Translations ---
 const translations = {
   en: {
     sectionTitle: "Contact",
@@ -16,6 +16,7 @@ const translations = {
     detailsTitle: "Contact Details",
     successMessage: "Message sent successfully! I will get back to you soon.",
     errorMessage: "Failed to send message. Please try again later.",
+    emailCopied: "Email copied to clipboard!",
   },
   fr: {
     sectionTitle: "Contact",
@@ -28,34 +29,32 @@ const translations = {
     detailsTitle: "Coordonnées",
     successMessage: "Message envoyé avec succès ! Je vous répondrai bientôt.",
     errorMessage: "Échec de l'envoi du message. Veuillez réessayer plus tard.",
+    emailCopied: "Email copié dans le presse-papiers !",
   },
 };
 
+// --- Contact details ---
 const contactDetails = [
-    { icon: Linkedin, text: 'sabir zidane', href: 'https://www.linkedin.com/in/sabir-zidane-7aa987262/' },
-    { icon: Mail, text: 'sabirzidane0@gmail.com', href: 'mailto:sabirzidane0@gmail.com' },
-    { icon: Phone, text: '+212 610592544', href: 'tel:+212610592544' },
-    { icon: MapPin, text: 'Marrakech, Morocco', href: '#' },
-    { icon: Github, text: 'zidanesabir', href: 'https://github.com/zidanesabir' },
+  { icon: Linkedin, text: 'sabir zidane', href: 'https://www.linkedin.com/in/sabir-zidane-7aa987262/', type: 'link' },
+  { icon: Mail, text: 'sabirzidane0@gmail.com', href: 'https://mail.google.com/mail/?view=cm&to=sabirzidane0@gmail.com', type: 'email' },
+,
+  { icon: Phone, text: '+212 610592544', href: 'tel:+212610592544', type: 'link' },
+  { icon: MapPin, text: 'Marrakech, Morocco', href: '#', type: 'link' },
+  { icon: Github, text: 'zidanesabir', href: 'https://github.com/zidanesabir', type: 'link' },
 ];
 
-// --- Component ---
 const Contact: React.FC = () => {
   const { language } = useLanguage();
   const t = translations[language];
-
   const form = useRef<HTMLFormElement>(null);
   const [isSending, setIsSending] = useState(false);
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
-  // ✨ 1. State for the notification message
-  const [notification, setNotification] = useState<{type: 'success' | 'error', message: string} | null>(null);
+  const [notification, setNotification] = useState<{ type: 'success' | 'error', message: string } | null>(null);
 
-  // ✨ 2. Effect to automatically hide the notification after 5 seconds
+  // Auto-hide notification after 5s
   useEffect(() => {
     if (notification) {
-      const timer = setTimeout(() => {
-        setNotification(null);
-      }, 5000);
+      const timer = setTimeout(() => setNotification(null), 5000);
       return () => clearTimeout(timer);
     }
   }, [notification]);
@@ -76,22 +75,31 @@ const Contact: React.FC = () => {
       form.current,
       'TymIMjpCMxboXxF2d'
     )
-    .then(() => {
-        // ✨ 3. Set success notification instead of alert
+      .then(() => {
         setNotification({ type: 'success', message: t.successMessage });
         setFormData({ name: '', email: '', message: '' });
-    }, () => {
-        // ✨ 4. Set error notification instead of alert
+      })
+      .catch(() => {
         setNotification({ type: 'error', message: t.errorMessage });
-    })
-    .finally(() => {
-        setIsSending(false);
-    });
+      })
+      .finally(() => setIsSending(false));
   };
+
+ const handleEmailClick = (_: React.MouseEvent<HTMLAnchorElement>, email: string) => {
+  // Don't prevent default — let mailto open
+  navigator.clipboard.writeText(email).then(() => {
+    setNotification({ 
+      type: 'success', 
+      message: t.emailCopied
+    });
+  }).catch(() => console.log('Clipboard API not available'));
+};
+
 
   return (
     <section id="contact" className="relative bg-gradient-to-br from-amber-900 via-amber-800 to-amber-700 py-16 lg:py-24 overflow-hidden">
       <div className="container mx-auto max-w-6xl px-4 md:px-6">
+        {/* Title */}
         <div className="mb-12">
           <div className="inline-flex items-center space-x-4">
             <h2 id="contact-heading" className="text-2xl font-bold text-white sm:text-3xl lg:text-4xl font-mono m-0">
@@ -101,7 +109,9 @@ const Contact: React.FC = () => {
             <div className="h-0.5 w-24 sm:w-40 rounded-full bg-gradient-to-r from-yellow-400 to-orange-500" />
           </div>
         </div>
+
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
+          {/* --- FORM --- */}
           <div className="bg-amber-800 border border-yellow-500/20 rounded-xl p-6 sm:p-8">
             <h3 className="text-center text-lg font-semibold text-amber-100 mb-6 relative quote-title">{t.formTitle}</h3>
             <form ref={form} onSubmit={handleSubmit} className="space-y-6">
@@ -120,29 +130,50 @@ const Contact: React.FC = () => {
                 <label htmlFor="message" className="custom-label">{t.formMessage}</label>
               </div>
               <div className="text-center">
-                <button type="submit" className="px-10 py-3 font-semibold text-amber-900 bg-yellow-400 rounded-lg shadow-lg hover:bg-yellow-300 transition-all duration-300 hover:scale-105 disabled:bg-yellow-600/50 disabled:cursor-not-allowed" disabled={isSending}>
+                <button
+                  type="submit"
+                  className="px-10 py-3 font-semibold text-amber-900 bg-yellow-400 rounded-lg shadow-lg hover:bg-yellow-300 transition-all duration-300 hover:scale-105 disabled:bg-yellow-600/50 disabled:cursor-not-allowed"
+                  disabled={isSending}
+                >
                   {isSending ? t.formSending : t.formSubmit}
                 </button>
               </div>
             </form>
           </div>
+
+          {/* --- CONTACT DETAILS --- */}
           <div className="bg-amber-800 border border-yellow-500/20 rounded-xl p-6 sm:p-8">
             <h3 className="text-center text-lg font-semibold text-amber-100 mb-6 relative quote-title">{t.detailsTitle}</h3>
             <div className="space-y-4">
-              {contactDetails.map(({ icon: Icon, text, href }) => (
-                <a key={text} href={href} target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 group">
-                  <Icon className="h-6 w-6 text-yellow-400/80 group-hover:text-yellow-300 transition-colors" />
-                  <span className="text-amber-200 group-hover:text-amber-100 transition-colors">{text}</span>
-                </a>
-              ))}
+              {contactDetails.map(({ icon: Icon, text, href, type }) => {
+                const isExternal = href.startsWith('http');
+                const isEmail = type === 'email';
+                
+                return (
+                  <a
+                    key={text}
+                    href={href}
+                    target={isExternal ? '_blank' : undefined}
+                    rel={isExternal ? 'noopener noreferrer' : undefined}
+                    onClick={isEmail ? (e) => handleEmailClick(e, text) : undefined}
+                    className="flex items-center gap-4 group cursor-pointer"
+                  >
+                    <Icon className="h-6 w-6 text-yellow-400/80 group-hover:text-yellow-300 transition-colors" />
+                    <span className="text-amber-200 group-hover:text-amber-100 transition-colors underline-offset-2 group-hover:underline">
+                      {text}
+                    </span>
+                  </a>
+                );
+              })}
             </div>
           </div>
         </div>
       </div>
 
-      {/* ✨ 5. The Notification Component */}
+      {/* --- Notification --- */}
       {notification && (
-        <div className={`fixed bottom-5 left-1/2 -translate-x-1/2 flex items-center gap-4 px-6 py-3 rounded-lg shadow-lg text-white animate-slide-in-out z-50
+        <div
+          className={`fixed bottom-5 left-1/2 -translate-x-1/2 flex items-center gap-4 px-6 py-3 rounded-lg shadow-lg text-white animate-slide-in-out z-50
           ${notification.type === 'success' ? 'bg-green-600' : 'bg-red-600'}`}
         >
           {notification.type === 'success' ? <CheckCircle className="h-6 w-6" /> : <XCircle className="h-6 w-6" />}
@@ -150,21 +181,48 @@ const Contact: React.FC = () => {
         </div>
       )}
 
+      {/* --- Styles --- */}
       <style>{`
-        .quote-title::before, .quote-title::after { content: '"'; position: absolute; font-family: serif; font-size: 2.5rem; line-height: 1; color: rgba(252, 211, 77, 0.3); }
+        .quote-title::before, .quote-title::after {
+          content: '"';
+          position: absolute;
+          font-family: serif;
+          font-size: 2.5rem;
+          line-height: 1;
+          color: rgba(252, 211, 77, 0.3);
+        }
         .quote-title::before { top: -0.5rem; left: -0.5rem; }
         .quote-title::after { bottom: -1.5rem; right: -0.5rem; }
-        .custom-input { width: 100%; padding: 0.75rem; background-color: transparent; border: 1px solid rgba(252, 211, 77, 0.3); border-radius: 0.5rem; color: white; transition: border-color 0.3s; }
-        .custom-input:focus { outline: none; border-color: rgba(251, 191, 36, 1); }
-        .custom-label { position: absolute; top: 0.75rem; left: 0.75rem; color: rgba(217, 119, 6, 0.7); background-color: transparent; padding: 0 0.25rem; transition: all 0.2s ease-out; pointer-events: none; }
+
+        .custom-input {
+          width: 100%;
+          padding: 0.75rem;
+          background-color: transparent;
+          border: 1px solid rgba(252, 211, 77, 0.3);
+          border-radius: 0.5rem;
+          color: white;
+          transition: border-color 0.3s;
+        }
+        .custom-input:focus {
+          outline: none;
+          border-color: rgba(251, 191, 36, 1);
+        }
+        .custom-label {
+          position: absolute;
+          top: 0.75rem;
+          left: 0.75rem;
+          color: rgba(217, 119, 6, 0.7);
+          background-color: transparent;
+          padding: 0 0.25rem;
+          transition: all 0.2s ease-out;
+          pointer-events: none;
+        }
         .peer:focus ~ .custom-label,
         .peer:not(:placeholder-shown) ~ .custom-label {
           transform: translateY(-1.75rem) scale(0.85);
           background-color: #92400e;
           color: rgba(251, 191, 36, 1);
         }
-        
-        /* ✨ 6. Animation for the notification */
         @keyframes slide-in-out {
           0% { transform: translate(-50%, 100px); opacity: 0; }
           15%, 85% { transform: translate(-50%, 0); opacity: 1; }

@@ -49,7 +49,7 @@ const Header: React.FC = () => {
   return (
     <header className="fixed top-4 left-0 right-0 z-50 px-4">
       <div
-        className={`container mx-auto flex items-center justify-between rounded-full px-6 py-3 transition-all duration-300 ${
+        className={`container mx-auto flex items-center justify-between rounded-full px-6 py-2 transition-all duration-300 ${
           isScrolled
             ? "bg-background/30 backdrop-blur-lg shadow-lg border border-border/20"
             : "bg-background/20 backdrop-blur-md border border-border/10"
